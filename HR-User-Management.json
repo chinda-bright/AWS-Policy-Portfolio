@@ -1,0 +1,34 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateUser",
+                "iam:AddUserToGroup",
+                "iam:GetUser",
+                "iam:ListAttachedUserPolicies",
+                "iam:UpdateLoginProfile",
+                "iam:ListUsers",
+                "iam:ListGroups",
+                "iam:GetGroup",
+                "iam:ListGroupsForUser"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Statement2",
+            "Effect": "Deny",
+            "Action": [
+                "iam:DeleteUser",
+                "iam:CreatePolicy"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
