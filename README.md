@@ -44,6 +44,24 @@ As I work toward AWS Solutions Architect certification, I'm building a strong fo
 
 ----
 
+#### (3) Developer Team Resource Access Policy
+
+**Purpose:** Development environment access for application developers
+**Use Case:** Code repository management, application debugging, and serverless development with strict development-only resource restrictions
+**Security Considerations:** Restricted to "dev-*" named resources only, preventing access to production or staging environments
+**File:** DevTeam-ResourceAccess.json
+
+**Key Permissions:**
+
+- Git operations on CodeCommit repositories (pull, push, view)
+- Read/write access to development S3 buckets and objects
+- CloudWatch logs access for application debugging and monitoring
+- Lambda function management for serverless development
+- All access restricted to resources with "dev-" naming prefix
+- No production or critical infrastructure access
+
+----------
+
 ## Future Sections (Coming Soon)
 - **S3 & Storage Solutions**
 - **EC2 & Compute Architecture** 
