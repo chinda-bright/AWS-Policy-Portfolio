@@ -8,7 +8,7 @@ As I work toward AWS Solutions Architect certification, I'm building a strong fo
 
 ### IAM Policies
 
-#### HR User Management Policy
+#### (1) HR User Management Policy
 
 **Purpose:** Basic user account management for HR team
 
@@ -26,6 +26,23 @@ As I work toward AWS Solutions Architect certification, I'm building a strong fo
 - Explicitly denies user deletion and policy creation
 
 ---
+#### (2) Finance Team Billing Policy
+
+**Purpose:** Read-only access to AWS billing and cost data for finance team
+**Use Case:** Read-Only Billing and Cost usage for Finance Teams to support Budget Planning and Cost Reporting
+**Security Considerations:** Provides visibility into costs without any ability to modify AWS resources or infrastructure settings
+**File:** FinanceTeam-BillingReadOnly.json
+
+**Key Permissions:**
+
+- View AWS billing information and charges
+- Access detailed usage reports
+- Generate cost analysis through Cost Explorer
+- View AWS Cost and Usage Reports
+- Monitor spending across all AWS services
+- Read-only access only - no modification rights to any resources
+
+----
 
 ## Future Sections (Coming Soon)
 - **S3 & Storage Solutions**
@@ -37,7 +54,7 @@ As I work toward AWS Solutions Architect certification, I'm building a strong fo
 ## About My Learning Path
 
 🎯 **Goal:** AWS Solutions Architect → AI/ML Specialist  
-📚 **Current:** Cloud Practitioner Foundations  
-🔄 **Next:** Solutions Architect Associate  
+📚 **Current:** AWS Cloud Practitioner Foundations  
+🔄 **Next:** AWS AI Practitioner Foundations
 
 This portfolio showcases practical, real-world scenarios and security-first thinking as I build toward enterprise-level cloud architecture expertise.
