@@ -1,0 +1,33 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DevTeamAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codecommit:GitPull",
+                "codecommit:GitPush",
+                "codecommit:ListRepositories",
+                "codecommit:GetRepository",
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:ListBucket",
+                "logs:GetLogEvents",
+                "logs:FilterLogEvents",
+                "logs:DescribeLogStreams",
+                "logs:DescribeLogGroups",
+                "lambda:GetFunction",
+                "lambda:ListFunctions",
+                "lambda:UpdateFunctionCode"
+            ],
+            "Resource": [
+                "arn:aws:s3:::dev-*/*",
+                "arn:aws:codecommit:*:*:dev-*",
+                "arn:aws:logs:*:*:log-group:dev-*",
+                "arn:aws:lambda:*:*:function:dev-*"
+            ]
+        }
+    ]
+}
+
+## This is an example IAM policy for developers to access CodeCommit, S3, CloudWatchLog and Lambda services, but RESTRICTED to ONLY dev-* resrources, to maintain security boundaries and the integrity of serverless apps.
