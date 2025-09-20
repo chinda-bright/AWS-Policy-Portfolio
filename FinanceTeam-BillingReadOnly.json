@@ -1,0 +1,19 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "FinanceCostAllow",
+			"Effect": "Allow",
+			"Action": [
+				"aws-portal:ViewBilling",
+				"aws-portal:ViewUsage",
+				"ce:GetCostAndUsage",
+				"cur:GetUsageReport"
+			],
+			"Resource": "*"
+		}
+	]
+}
+
+
+## This policy basically gives finance team "Read-Only" access into the AWS billing report to support budget planning and cost reporting without infrastructure modification rights.
