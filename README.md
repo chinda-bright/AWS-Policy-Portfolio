@@ -28,7 +28,7 @@ As I work toward AWS Solutions Architect certification, I'm building a strong fo
 ---
 #### (2) Finance Team Billing Policy
 
-**Purpose:** Read-only access to AWS billing and cost data for finance team
+**Purpose:** Read-only access to AWS billing and cost data for finance team  
 **Use Case:** Read-Only Billing and Cost usage for Finance Teams to support Budget Planning and Cost Reporting
 **Security Considerations:** Provides visibility into costs without any ability to modify AWS resources or infrastructure settings
 **File:** FinanceTeam-BillingReadOnly.json
