@@ -2,11 +2,11 @@
 
 *1:* Zero-Spend Budget
     > Allows AWS to notify me when my spend exceeds `£0` -- (£0.01)    
-*2:* Monthly Cost Budget
-     > Set a monthly cost budget that;    
-          > Alerts me when the budget is on 85% spend    
-          > When the forecasted budget is 100%    
-          > When the budget is exceeded.    
+    
+*2:* Monthly Cost Budget --> Set a monthly cost budget that;    
+        > Alerts me when the budget is on 85% spend    
+        > When the forecasted budget is 100%    
+        > When the budget is exceeded.    
 
 #### COST MANAGEMENT BEST PRACTICES
 
