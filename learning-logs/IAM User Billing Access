@@ -1,0 +1,42 @@
+#### Scenario
+## Objective:
+Grant IAM user access ti view billing information to allow finance team members see AWS costs for budget and planning.
+
+## Steps Taken
+
+*1*: Root Account Configuration
+  > Activated IAM user access to billing 
+    > Root Account --> Account Settings --> IAM User and Role Access to Billing --> Activate ✅
+
+*2*: IAM Policy
+  > Attached billing policy to IAM User
+    > IAM --> User --> Username --> Permissions --> Add Permissions `AWS managed "billing" policy`
+
+## User Account Verification
+
+On the IAM User Account
+  > Logged out of account and logged back in
+  > Go to `Billiing and Cost Management Console`
+    > See `Cost Summary` is visible.
+
+```
+TROUBLESHOOTING STEPS
+```
+
+*Problem Encountered:* At first, user could not see the billing data under cost summary. All `Cost Summary` parameters displayed `Data unavailable`
+*Root Cause Identified:* Policy was not attached after the first attempt on the user account
+
+```
+DEBUGGING PROCESS
+```
+
+*1:* Verfied that root account had been activated
+*2:* Confirmed IAM User Permissions xx had no `Billing` policy attached
+*3:* Manually added the `Billing policy` to IAM User under Permissions
+*4:* Refreshed the account 
+
+### Learning Insights
+*1*: You need ROOT Account
+    --> `Account` --> `IAM user and role access to Billing information` --> Activate `IAM user/role access to billing information`
+*2*: You need IAM User Account
+    --> `IAM User --> `Username` --> `Permissions` --> Attach `Billing Policy` at user level
