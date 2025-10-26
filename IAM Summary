@@ -1,0 +1,11 @@
+IAM SUMMARY  
+
+**USER:** IAM users are mapped to actual physical users, who have PASSWORDS for the AWS Console
+**GROUPS:** Groups can contain users only, and you can have multiple groups and one user maybe a part of more than one group.
+**POLICIES:** IAM Policy is a JSON document with specific permissions for users or groups (follows the principle of LEAST PRIVILEGE)
+**ROLES:** IAM Roles can be created for AWS Services to perform actions on our behalf - they also need permissions to function
+**SECURITY:** IAM users must have password and enable MFA
+**AWS CLI:** IAM allows you to manage AWS services using Command Line Interface
+**AWS SDK:** IAM allows you to manage AWS services using programming language
+**Access Keys:** You can ACCESS AWS using CLI or SDK
+**AUDIT:** IAM uses security tools to AUDIT --> IAM Credential Report (Account level Security) and IAM Access Advisor (User Level Security)
