@@ -1,0 +1,46 @@
+I just also learned about;
+```
+BACKTICCKS
+```
+
+#### Backticks are super useful in markdown and coding!
+
+1. Inline code formatting
+markdownUse the `lambda:GetFunction` action for this.
+Install `python3` on your system.
+The file is called `config.json`.
+
+2. Code blocks (triple backticks)
+markdown```
+This is a code block
+Multiple lines
+Preserves formatting
+```
+
+3. Code blocks with syntax highlighting
+markdown```python
+def hello():
+    print("Hello World")
+```
+```json
+{
+    "name": "example"
+}
+```
+
+4. In programming (JavaScript, shell scripts)
+javascriptlet name = `Hello ${firstName}`; // Template literals
+Where you'll use them:
+
+GitHub README files - formatting code/filenames
+Documentation - showing commands or technical terms
+Slack/Discord - highlighting code snippets
+Blog posts - technical writing
+Comments - making things stand out
+
+Quick guide:
+
+Single backtick ` = inline code
+Triple backticks ``` = code block
+
+Now you know a key markdown formatting tool! Very handy for technical documentation and your portfolio.
