@@ -1,7 +1,7 @@
 ### What I Configured
 
 *1:* Zero-Spend Budget
-    > Allows AWS to notify me when my spend exceeds `£0` -- (£0.01)
+    > Allows AWS to notify me when my spend exceeds `£0` -- (£0.01)    
 *2:* Monthly Cost Budget
     > Set a monthly cost budget that;
       > Alerts me when the budget is on 85% spend
