@@ -66,7 +66,7 @@ As I work toward AWS Solutions Architect certification, I'm building a strong fo
 
 I have now completed the IAM lessons and created some IAM Policies 
 This section is where I summarise ALL I have learned about IAM  
-**File:** IAM Summary
+**File:** IAM Summary.json
 
 ----------
 
