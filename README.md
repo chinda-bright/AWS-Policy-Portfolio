@@ -30,8 +30,9 @@ As I work toward AWS Solutions Architect certification, I'm building a strong fo
 
 **Purpose:** Read-only access to AWS billing and cost data for finance team  
 **Use Case:** Read-Only Billing and Cost usage for Finance Teams to support Budget Planning and Cost Reporting  
-**Security Considerations:** Provides visibility into costs without any ability to modify AWS resources or infrastructure settings  
-**File:** FinanceTeam-BillingReadOnly.json
+**Security Considerations:** Provides visibility into costs without any ability to modify AWS resources or infrastructure settings 
+
+**File:** `FinanceTeam-BillingReadOnly.json`
 
 **Key Permissions:**
 
@@ -49,7 +50,7 @@ As I work toward AWS Solutions Architect certification, I'm building a strong fo
 **Purpose:** Development environment access for application developers  
 **Use Case:** Code repository management, application debugging, and serverless development with strict development-only resource restrictions  
 **Security Considerations:** Restricted to "dev-*" named resources only, preventing access to production or staging environments  
-**File:** DevTeam-ResourceAccess.json  
+**File:** `DevTeam-ResourceAccess.json`  
 
 **Key Permissions:**
 
@@ -66,7 +67,7 @@ As I work toward AWS Solutions Architect certification, I'm building a strong fo
 
 I have now completed the IAM lessons and created some IAM Policies 
 This section is where I summarise ALL I have learned about IAM  
-**File:** IAM Summary.json
+**File:** `IAM Summary.json`
 
 ----------
 
