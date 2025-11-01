@@ -1,0 +1,57 @@
+#### EC2 Learning Log: Public IP Address Changes
+
+### What I Observed
+When I stop and start my EC2 instance, the public IPv4 address changes.
+
+### Why This Happens
+When instance is STOPPED:
+
+-------------------------------------------
+
+AWS releases the public IP back to their pool
+IP becomes available for other customers
+
+When instance is STARTED:
+
+AWS assigns a new random public IP
+Cannot keep the same IP with stop/start cycle
+
+
+Why AWS Does This
+
+Efficient use of limited IPv4 addresses
+Public IPs are scarce and valuable
+Only running instances need them
+
+
+Solutions
+1. Elastic IP
+
+Reserve a permanent public IP address
+Stays the same across stop/start
+Free while attached to running instance
+Costs money if reserved but NOT attached
+
+2. Use Private IP
+
+Internal AWS communication only
+Never changes
+Not accessible from internet
+
+3. DNS Mapping
+
+Point domain name to current IP
+Update DNS when IP changes
+
+
+For Learning Phase
+Accept the changing IP - this is normal EC2 behavior.
+Use Elastic IP only when you need a permanent public address.
+
+Key Takeaway
+STOP/START = New Public IP (by design)
+REBOOT = Same Public IP (instance never fully stops)
+
+Date: 01 November 2025
+Topic: EC2 Public IP Behavior
+Status: ✅ Understood
