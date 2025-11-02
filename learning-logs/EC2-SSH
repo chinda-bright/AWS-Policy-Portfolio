@@ -1,0 +1,77 @@
+#### Connecting to EC2 Instance through SSH
+
+---
+
+## What I Actually Did
+
+Launched my first EC2 instance (t2.micro, Amazon Linux 2023) and connected via SSH from PowerShell.
+
+---
+
+## Security Group - Don't Forget This!
+
+Need SSH rule or you can't connect:
+- Port 22
+- Source: 0.0.0.0/0 (anywhere) or My IP (safer)
+
+Check: EC2 → Instance → Security tab → Inbound rules
+
+---
+
+## The Key File Thing (Important!)
+
+Downloaded `my-ec2-key-pem-II.pem` when launching instance.
+
+**Windows hates the permissions by default** - had to fix:
+
+```powershell
+icacls my-ec2-key-pem-II.pem /inheritance:r
+icacls my-ec2-key-pem-II.pem /grant:r "YOUR-USERNAME:(R)"
+```
+
+Only YOUR user should have Read access. Check with `icacls filename.pem`
+
+---
+
+## Actually Connecting
+
+```powershell
+cd C:\path\to\key\folder
+ssh -i .\my-ec2-key-pem-II.pem ec2-user@YOUR-PUBLIC-IP
+```
+
+**Get Public IP from:** EC2 console → Instance details
+
+**Username depends on OS:**
+- Amazon Linux = ec2-user
+- Ubuntu = ubuntu
+
+---
+
+## Things That Bit Me
+
+- IP changes when you stop/start instance (check console every time)
+- Typos in filename = connection fails
+- Wrong folder = "file not found"
+- Connection timeout = security group blocking or wrong IP
+
+---
+
+## When Done
+
+Type `exit` to leave SSH
+
+**STOP THE INSTANCE** or it keeps charging:
+EC2 → Instances → Stop (not terminate unless you're done forever)
+
+---
+
+## Quick Check Before Connecting
+
+✓ Instance = Running  
+✓ Status = 2/2 checks passed  
+✓ Security group = SSH allowed  
+✓ Key permissions = set correctly  
+✓ Public IP = current one from console
+
+---
