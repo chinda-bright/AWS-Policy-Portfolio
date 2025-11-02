@@ -1,0 +1,151 @@
+####SSH Troubleshooting - What Actually Happened
+
+---
+
+## Problem: Couldn't Connect to EC2
+
+Kept getting errors. Here's what went wrong and how I fixed each one.
+
+---
+
+## Error 1: PowerShell Command Failed
+
+**What I typed:** `cd.\Desktop`
+
+**Error:** Command not recognized
+
+**Problem:** Missing space
+
+**Fix:** `cd .\Desktop` or just `cd Desktop`
+
+---
+
+## Error 2: Desktop Folder Not Found
+
+**Error:** `Cannot find path 'C:\Users\1\Desktop'`
+
+**Problem:** My files were in OneDrive, not local Desktop
+
+**Fix:** Check where file actually is - mine was at `C:\Users\1\OneDrive\Documents\AWS\EC2`
+
+**Lesson:** Use `dir` or `ls` to see what's actually in current folder
+
+---
+
+## Error 3: Permission Denied (First Time)
+
+**Error:** `Permission denied (publickey)`
+
+**Problem:** Too many users had access to .pem file (SYSTEM, Administrators, me)
+
+**How I checked:**
+```
+icacls my-ec2-key-pem-II.pem
+```
+
+Showed 3 users - SSH hates this.
+
+**Fix:** Remove everyone except me
+```
+icacls my-ec2-key-pem-II.pem /inheritance:r
+icacls my-ec2-key-pem-II.pem /grant:r "USERNAME:(R)"
+```
+
+---
+
+## Error 4: Connection Timeout
+
+**Error:** `Connection timed out`
+
+**Problem:** Used wrong IP address - typed `52.92.247.110` but actual was `52.91.247.110`
+
+**Fix:** Always copy IP from EC2 console - don't trust what you remember
+
+**Where to check:** EC2 → Instances → Public IPv4 address
+
+**Note:** IP changes every time you stop/start instance!
+
+---
+
+## Error 5: File Not Found
+
+**Error:** `Identity file not accessible: No such file or directory`
+
+**Problem:** Typo in filename - typed `my-ec2-key-pemII.pem` instead of `my-ec2-key-pem-II.pem`
+
+**Fix:** Use Tab completion! Type `ssh -i .\my-ec2[TAB]` and PowerShell fills in exact name
+
+**Lesson:** Hyphens matter. Capitals matter. Every character matters.
+
+---
+
+## Error 6: Permission Denied Again
+
+**Error:** `Load key: Permission denied`
+
+**Problem:** My earlier permission fix had the typo too, so it never actually worked
+
+**Fix:** Ran icacls again with CORRECT filename this time
+
+---
+
+## Finally Worked
+
+After fixing all that, got this beautiful screen:
+```
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+```
+
+Connected! ✅
+
+---
+
+## What I Learned (The Hard Way)
+
+**Before connecting, double-check:**
+1. Are you in the right folder? (`pwd` to check)
+2. Is the file actually there? (`dir` or `ls`)
+3. Permissions set? (`icacls filename.pem` - should show only you)
+4. Right IP? (Copy from EC2 console, don't type from memory)
+5. Exact filename? (Use Tab completion, don't type manually)
+
+**Common mistakes:**
+- Missing spaces in commands
+- Typos in filenames
+- Using old/wrong IP addresses
+- Files in OneDrive instead of where you think
+- Not setting permissions correctly
+
+**Pro tips:**
+- Use Tab to autocomplete filenames (saves typos)
+- Copy-paste IPs from AWS console
+- Check `icacls` output - should be SHORT (just your username)
+- When stuck, verify EACH piece: folder, file, permissions, IP, security group
+
+---
+
+## Debug Checklist (Use This Next Time)
+
+If SSH fails:
+
+1. **File exists?** Run `dir` - is .pem file listed?
+2. **Permissions?** Run `icacls filename.pem` - only you showing?
+3. **Right IP?** Check EC2 console Public IPv4
+4. **Instance running?** EC2 console - shows "Running"?
+5. **Security group?** Inbound rules allow SSH port 22?
+6. **Typos?** Use Tab completion, don't manually type
+
+Work through this list = you'll find the problem.
+
+---
+
+**Time wasted on typos and wrong folders:** Way too long
+
+**Time saved next time:** Hopefully a lot
+
+---
+
+**Date:** 02 November 2025  
+**Lesson:** Details matter. Check everything twice.
